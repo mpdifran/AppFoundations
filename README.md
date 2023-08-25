@@ -1,3 +1,3 @@
 # AppFoundations
 
-A description of this package.
+A collection of useful extensions to the Foundation library.
