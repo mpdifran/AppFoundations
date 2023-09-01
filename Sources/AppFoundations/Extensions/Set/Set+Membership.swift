@@ -18,6 +18,15 @@ public extension Set {
         return mutatedSelf
     }
 
+    /// Returns this ``Set`` with `element` removed.
+    /// - parameter element: The `Element` to remove.
+    /// - returns: This ``Set`` with `element` removed.
+    func removing(_ element: Element) -> Self {
+        var mutatedSelf = self
+        mutatedSelf.remove(element)
+        return mutatedSelf
+    }
+
     /// If the `element` is present in this ``Set``, it is removed. Otherwise, the `element` is inserted.
     /// - parameter element: The `Element` to insert.
     mutating func toggleMembership(_ element: Element) {
@@ -26,5 +35,18 @@ public extension Set {
         } else {
             insert(element)
         }
+    }
+
+    /// If the `element` is present in this ``Set``, it is removed. Otherwise, the `element` is inserted.
+    /// - parameter element: The `Element` to insert.
+    /// - returns: The ``Set`` with the element's inclusion toggled.
+    func togglingMembership(_ element: Element) -> Self {
+        var mutatedSelf = self
+        if contains(element) {
+            mutatedSelf.remove(element)
+        } else {
+            mutatedSelf.insert(element)
+        }
+        return mutatedSelf
     }
 }
